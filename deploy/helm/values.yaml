@@ -352,13 +352,13 @@ ingest-client:
         image: nvcr.io/nvidia/blueprint/aiva-customer-service-ingest-client:1.1.0
         imagePullPolicy: IfNotPresent
         name: ingest-pdf-to-canonical
-          resources:
-            requests:
-              cpu: "250m"
-              memory: "512Mi"
-            limits:
-              cpu: "4"
-              memory: "2Gi"
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "4"
+            memory: "2Gi"
   egress:
     postgres:
       address: postgres-postgres-deployment-postgres-service
