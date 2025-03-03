@@ -23,10 +23,7 @@ applicationSpecs:
           value: ""
         image:
           repository: nvcr.io/nim/meta/llama-3.1-8b-instruct
-          tag: 1.2.2
-          command: ["/bin/sh", "-c"]#manually run: /bin/bash /opt/nim/start-server.sh
-        args:
-        - echo starting && sleep 800000;
+          tag: latest
         livenessProbe:
           exec:
             command:
