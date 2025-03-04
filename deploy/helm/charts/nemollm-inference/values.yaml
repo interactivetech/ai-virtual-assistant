@@ -59,7 +59,13 @@ applicationSpecs:
         - containerPort: 8000
           name: http
         resources:
+          requests:
+            cpu: "8"
+            memory: "150Gi"
+            nvidia.com/gpu: 2
           limits:
+            cpu: "8"
+            memory: "150Gi"
             nvidia.com/gpu: 2
     securityContext:
       runAsGroup: 1000
