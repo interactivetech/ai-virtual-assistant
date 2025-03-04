@@ -24,8 +24,8 @@ applicationSpecs:
         - name: NIM_LOW_MEMORY_MODE
           value: "1"
         image:
-          repository: nvcr.io/nim/meta/llama-3.1-8b-instruct
-          tag: latest
+          repository: nvcr.io/nim/meta/llama-3.2-3b-instruct
+          tag: 1.6.0
         command: ["/bin/bash", "-c"]#manually run: /bin/bash /opt/nim/start-server.sh
         args:
         - echo starting && sleep 800000;
