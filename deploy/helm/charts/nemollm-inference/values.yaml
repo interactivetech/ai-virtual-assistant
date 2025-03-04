@@ -60,11 +60,11 @@ applicationSpecs:
           name: http
         resources:
           requests:
-            cpu: "8"
+            cpu: "32"
             memory: "150Gi"
             nvidia.com/gpu: 2
           limits:
-            cpu: "8"
+            cpu: "32"
             memory: "150Gi"
             nvidia.com/gpu: 2
     securityContext:
