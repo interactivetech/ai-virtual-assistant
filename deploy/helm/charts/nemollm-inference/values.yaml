@@ -25,8 +25,8 @@ applicationSpecs:
           repository: nvcr.io/nim/meta/llama-3.1-8b-instruct
           tag: latest
           command: ["/bin/sh", "-c"]#manually run: /bin/bash /opt/nim/start-server.sh
-        args:
-        - echo starting && sleep 800000;
+          args:
+          - echo starting && sleep 800000;
         livenessProbe:
           exec:
             command:
