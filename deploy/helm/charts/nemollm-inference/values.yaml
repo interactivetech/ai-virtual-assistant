@@ -16,6 +16,7 @@ affinity: {}
 applicationSpecs:
   nemollm-infer-deployment:
     apptype: stateless
+    nodeName: scs04.shared08.vcfmr.local
     containers:
       nemollm-infer-container:
         env:
