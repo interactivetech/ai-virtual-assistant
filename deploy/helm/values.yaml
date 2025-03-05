@@ -12,9 +12,9 @@ global:
 
 nvcf:
   dockerRegSecrets:
-    - "ngc-docker-reg-secret"
+    - name: "ngc-docker-reg-secret"
   additionalSecrets:
-    - "ngc-secret"
+    - name: "ngc-secret"
 # model:
 #   ngcAPISecret: "ngc-api-secret"
 #   ngcAPIKey: ""
