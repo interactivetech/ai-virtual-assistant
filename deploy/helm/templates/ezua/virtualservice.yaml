@@ -5,9 +5,9 @@ metadata:
   namespace: default
 spec:
   gateways:
-  - istio-system/ezaf-gateway
+  - {{ .Values.ezua.virtualService.istioGateway | required ".Values.ezua.virtualService.istioGateway is required !\n" }}
   hosts:
-  - nvidia-blueprint.hpepcai-ingress.shared08.vcfmr.local
+  - {{ .Values.ezua.virtualService.endpoint | required ".Values.ezua.virtualService.endpoint is required !\n" }}
   http:
     - match:
         - uri:

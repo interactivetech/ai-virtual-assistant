@@ -22,6 +22,11 @@ nvcf:
         key: "ngc-api-key"
         value: "<YOUR_NGC_API_KEY>"
 
+ezua:
+  #Use next options in order to configure the application endpoint.
+  virtualService:
+    endpoint: "nvidia-blueprint.hpepcai-ingress.shared08.vcfmr.local"
+    istioGateway: "istio-system/ezaf-gateway"
 # model:
 #   ngcAPISecret: "ngc-api-secret"
 #   ngcAPIKey: ""
