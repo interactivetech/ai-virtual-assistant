@@ -13,8 +13,15 @@ global:
 nvcf:
   dockerRegSecrets:
     - name: "ngc-docker-reg-secret"
+      username: "$oauthtoken"
+      password: "<YOUR_NGC_API_KEY>"
+
   additionalSecrets:
     - name: "ngc-secret"
+      stringData:
+        key: "ngc-api-key"
+        value: "<YOUR_NGC_API_KEY>"
+
 # model:
 #   ngcAPISecret: "ngc-api-secret"
 #   ngcAPIKey: ""
