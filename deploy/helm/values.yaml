@@ -70,6 +70,13 @@ agent-services:
             value: '30'
           - name: LOGLEVEL
             value: INFO
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+            limits:
+              cpu: "8"
+              memory: "30Gi"
 
   egress:
     llm-nim:
@@ -119,6 +126,13 @@ analytics-services:
             value: ""
           - name: LOGLEVEL
             value: INFO
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+            limits:
+              cpu: "8"
+              memory: "30Gi"
 
   egress:
     llm-nim:
@@ -139,6 +153,13 @@ milvus:
             value: minio-minio-deployment-minio-service:9010
           - name: KNOWHERE_GPU_MEM_POOL_SIZE
             value: 2048;4096
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+            limits:
+              cpu: "8"
+              memory: "30Gi"
   egress:
     etcd:
       address: etcd-etcd-deployment-etcd-service
@@ -194,7 +215,13 @@ retriever-canonical:
             value: '20'
           - name: LOGLEVEL
             value: INFO
-
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+            limits:
+              cpu: "8"
+              memory: "30Gi"
   egress:
     llm-nim:
       address: nemollm-inference-nemollm-infer-deployment-llm-service
@@ -261,7 +288,13 @@ retriever-structured:
             value: PdM_machines
           - name: LOGLEVEL
             value: INFO
-
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+            limits:
+              cpu: "8"
+              memory: "30Gi"
   egress:
     llm-nim:
       address: nemollm-inference-nemollm-infer-deployment-llm-service
@@ -279,7 +312,13 @@ api-gateway:
             value: http://agent-services-agent-services-deployment-agent-service:8081
           - name: ANALYTICS_SERVER_URL
             value: http://analytics-services-analytics-deployment-analytics-service:8082
-
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+            limits:
+              cpu: "8"
+              memory: "30Gi"
   egress:
     chain-server-agent:
       address: agent-services-agent-services-deployment-agent-service
@@ -324,6 +363,13 @@ ingest-client:
         image: nvcr.io/nvidia/blueprint/aiva-customer-service-ingest-client:1.1.0
         imagePullPolicy: IfNotPresent
         name: ingest-pdf-to-canonical
+        resources:
+          requests:
+            cpu: "8"
+            memory: "30Gi"
+          limits:
+            cpu: "8"
+            memory: "30Gi"
 
   egress:
     postgres:
@@ -344,6 +390,15 @@ ranking-ms:
           env:
           - name: NGC_API_KEY
             value: ""
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+              nvidia.com/gpu: 1
+            limits:
+              cpu: "8"
+              memory: "30Gi"
+              nvidia.com/gpu: 1
 
 nemollm-inference:
   applicationSpecs:
@@ -353,6 +408,15 @@ nemollm-inference:
           env:
           - name: NGC_API_KEY
             value: ""
+          resources:
+            requests:
+              cpu: "32"
+              memory: "150Gi"
+              nvidia.com/gpu: 1
+            limits:
+              cpu: "32"
+              memory: "150Gi"
+              nvidia.com/gpu: 1
 
 
 nemollm-embedding:
@@ -363,3 +427,12 @@ nemollm-embedding:
           env:
           - name: NGC_API_KEY
             value: ""
+          resources:
+            requests:
+              cpu: "8"
+              memory: "30Gi"
+              nvidia.com/gpu: 1
+            limits:
+              cpu: "8"
+              memory: "30Gi"
+              nvidia.com/gpu: 1
