@@ -8,14 +8,16 @@
 # license agreement from NVIDIA CORPORATION is strictly prohibited.
 
 global:
-  ngcImagePullSecretName: ""
+  ngcImagePullSecretName: "ngc-docker-reg-secret"
+
+nvcf:
+  dockerRegSecrets:
+    - "ngc-docker-reg-secret"
+  additionalSecrets:
+    - "ngc-secret"
 # model:
 #   ngcAPISecret: "ngc-api-secret"
 #   ngcAPIKey: ""
-nvcf:
-  dockerRegSecrets: []
-  additionalSecrets: []
-  localStorageProvisioner: []
 agent-services:
   applicationSpecs:
     agent-services-deployment:
