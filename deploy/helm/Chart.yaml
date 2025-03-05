@@ -8,7 +8,7 @@
 # license agreement from NVIDIA CORPORATION is strictly prohibited.
 
 apiVersion: v2
-name: blueprint-aiva3
+name: blueprint-aiva4
 description: AI-VirtualAssistant RAG on NIMs
 type: application
 version: 1.1.0

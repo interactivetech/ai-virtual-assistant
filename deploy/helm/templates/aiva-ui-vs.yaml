@@ -9,11 +9,14 @@ spec:
   hosts:
   - nvidia-blueprint.hpepcai-ingress.shared08.vcfmr.local
   http:
-  - match:
-    - uri:
-        prefix: /
-    route:
-    - destination:
-        host: blueprint-aiva3-aiva-ui.default.svc.cluster.local
-        port:
-          number: 3001
+    - match:
+        - uri:
+            prefix: /
+      rewrite:
+        uri: /
+
+      route:
+      - destination:
+          host: blueprint-aiva4-aiva-ui.default.svc.cluster.local
+          port:
+            number: 3001
