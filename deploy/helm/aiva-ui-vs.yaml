@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: aiva-ui-vs
+  namespace: default
+spec:
+  gateways:
+  - istio-system/ezaf-gateway
+  hosts:
+  - nvidia-blueprint.hpepcai-ingress.shared08.vcfmr.local
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: aiva-aiva-ui.default.svc.cluster.local
+        port:
+          number: 3001
