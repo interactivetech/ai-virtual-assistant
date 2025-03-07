@@ -17,6 +17,6 @@ spec:
 
       route:
       - destination:
-          host: blueprint-aiva4-aiva-ui.default.svc.cluster.local
+          host: aiva-aiva-ui.default.svc.cluster.local
           port:
             number: 3001
