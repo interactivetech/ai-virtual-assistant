@@ -62,11 +62,11 @@ applicationSpecs:
           requests:
             cpu: "8"
             memory: "150Gi"
-            nvidia.com/gpu: 2
+            nvidia.com/gpu: 4
           limits:
             cpu: "8"
             memory: "150Gi"
-            nvidia.com/gpu: 2
+            nvidia.com/gpu: 4
     securityContext:
       runAsGroup: 1000
       runAsUser: 1000
