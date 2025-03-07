@@ -73,7 +73,7 @@ agent-services:
           - name: NVIDIA_API_KEY
             value: ""
           - name: GRAPH_RECURSION_LIMIT
-            value: '20'
+            value: '200'
           - name: GRAPH_TIMEOUT_IN_SEC
             value: '15'
           - name: RETURN_WINDOW_CURRENT_DATE
