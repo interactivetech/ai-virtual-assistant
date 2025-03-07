@@ -422,11 +422,11 @@ nemollm-inference:
             value: ""
           resources:
             requests:
-              cpu: "32"
+              cpu: "8"
               memory: "150Gi"
               nvidia.com/gpu: 1
             limits:
-              cpu: "32"
+              cpu: "8"
               memory: "150Gi"
               nvidia.com/gpu: 1
 
