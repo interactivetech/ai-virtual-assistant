@@ -140,10 +140,10 @@ analytics-services:
             value: INFO
           resources:
             requests:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
             limits:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
 
   egress:
@@ -167,10 +167,10 @@ milvus:
             value: 2048;4096
           resources:
             requests:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
             limits:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
   egress:
     etcd:
@@ -229,10 +229,10 @@ retriever-canonical:
             value: INFO
           resources:
             requests:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
             limits:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
   egress:
     llm-nim:
@@ -302,10 +302,10 @@ retriever-structured:
             value: INFO
           resources:
             requests:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
             limits:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
   egress:
     llm-nim:
@@ -326,10 +326,10 @@ api-gateway:
             value: http://analytics-services-analytics-deployment-analytics-service:8082
           resources:
             requests:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
             limits:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
   egress:
     chain-server-agent:
@@ -404,11 +404,11 @@ ranking-ms:
             value: ""
           resources:
             requests:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
               nvidia.com/gpu: 1
             limits:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
               nvidia.com/gpu: 1
 
@@ -441,10 +441,10 @@ nemollm-embedding:
             value: ""
           resources:
             requests:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
               nvidia.com/gpu: 1
             limits:
-              cpu: "8"
+              cpu: "2"
               memory: "30Gi"
               nvidia.com/gpu: 1
