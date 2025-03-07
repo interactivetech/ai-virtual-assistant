@@ -26,7 +26,7 @@ applicationSpecs:
           value: "1"
         image:
           repository: nvcr.io/nim/meta/llama-3.1-8b-instruct
-          tag: 1.2.2
+          tag: latest
         livenessProbe:
           exec:
             command:
