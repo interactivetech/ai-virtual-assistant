@@ -75,7 +75,7 @@ agent-services:
           - name: GRAPH_RECURSION_LIMIT
             value: '200'
           - name: GRAPH_TIMEOUT_IN_SEC
-            value: '15'
+            value: '200'
           - name: RETURN_WINDOW_CURRENT_DATE
             value: '2024-10-23'
           - name: RETURN_WINDOW_THRESHOLD_DAYS
