@@ -25,7 +25,7 @@ nvcf:
 ezua:
   #Use next options in order to configure the application endpoint.
   virtualService:
-    endpoint: "nvidia-blueprint.ingress.si5890.vcfmr.local/"
+    endpoint: "nvidia-blueprint.ingress.si5890.vcfmr.local"
     istioGateway: "istio-system/ezaf-gateway"
 # model:
 #   ngcAPISecret: "ngc-api-secret"
