@@ -1,6 +1,6 @@
 # /bin/bash
 
-helm upgrade --install aiva . \
+helm upgrade --install blueprint-aiva4 . \
   --set global.ngcImagePullSecretName=ngc-docker-reg-secret \
   --set ranking-ms.applicationSpecs.ranking-deployment.containers.ranking-container.env[0].name=NGC_API_KEY \
   --set ranking-ms.applicationSpecs.ranking-deployment.containers.ranking-container.env[0].value=$NGC_API_KEY \
