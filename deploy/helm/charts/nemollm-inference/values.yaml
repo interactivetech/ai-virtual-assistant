@@ -22,8 +22,6 @@ applicationSpecs:
         env:
         - name: NGC_API_KEY
           value: ""
-        - name: NIM_LOW_MEMORY_MODE
-          value: "1"
         image:
           repository: nvcr.io/nim/meta/llama-3.1-8b-instruct
           tag: latest
