@@ -22,10 +22,13 @@ nvcf:
         key: "ngc-api-key"
         value: "<YOUR_NGC_API_KEY>"
 
+aiva-ui:
+  fullnameOverride: "aiva"
+
 ezua:
   #Use next options in order to configure the application endpoint.
   virtualService:
-    endpoint: "nvidia-blueprint.ingress.si5890.vcfmr.local"
+    endpoint: "aiva.<CHANGE_ME>" # EDIT THIS IF your domain name is different
     istioGateway: "istio-system/ezaf-gateway"
 # model:
 #   ngcAPISecret: "ngc-api-secret"
@@ -70,8 +73,8 @@ agent-services:
             value: http://retriever-canonical-canonical-deployment-canonical-service:8086
           - name: STRUCTURED_RAG_URI
             value: http://retriever-structured-structured-deployment-structured-service:8087
-          - name: NVIDIA_API_KEY
-            value: ""
+          - name: NVIDIA_API_KEY # Manually update your key here if connecting to hosted nvidia endpoint
+            value: "<UPDATE_ME>"
           - name: GRAPH_RECURSION_LIMIT
             value: '200'
           - name: GRAPH_TIMEOUT_IN_SEC
@@ -134,8 +137,8 @@ analytics-services:
             value: customer_data
           - name: PERSIST_DATA
             value: 'true'
-          - name: NVIDIA_API_KEY
-            value: ""
+          - name: NVIDIA_API_KEY # Manually update your key here if connecting to hosted nvidia endpoint
+            value: "<UPDATE_ME>"
           - name: LOGLEVEL
             value: INFO
           resources:
@@ -215,8 +218,8 @@ retriever-canonical:
             value: '506'
           - name: APP_TEXTSPLITTER_CHUNKOVERLAP
             value: '200'
-          - name: NVIDIA_API_KEY
-            value: ""
+          - name: NVIDIA_API_KEY # Manually update your key here if connecting to hosted nvidia endpoint
+            value: "<UPDATE_ME>"
           - name: COLLECTION_NAME
             value: unstructured_data
           - name: APP_RETRIEVER_TOPK
@@ -278,8 +281,8 @@ retriever-structured:
               only based on the context that you are provided. If something is out
               of context, you will refrain from replying and politely decline to respond
               to the user.
-          - name: NVIDIA_API_KEY
-            value: ""
+          - name: NVIDIA_API_KEY # Manually update your key here if connecting to hosted nvidia endpoint
+            value: "<UPDATE_ME>"
           - name: COLLECTION_NAME
             value: structured_data
           - name: APP_DATABASE_NAME

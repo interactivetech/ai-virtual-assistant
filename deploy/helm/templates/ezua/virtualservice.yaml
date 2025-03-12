@@ -17,6 +17,6 @@ spec:
 
       route:
       - destination:
-          host: aiva-aiva-ui.default.svc.cluster.local
+          host: aiva.default.svc.cluster.local
           port:
             number: 3001
