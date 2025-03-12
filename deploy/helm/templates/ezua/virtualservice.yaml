@@ -1,8 +1,8 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: aiva-ui-vs
-  namespace: default
+  name: {{ include "aiva-ui.name" (index .Subcharts "aiva-ui") }}-vs
+  namespace: {{ .Release.Namespace }}
 spec:
   gateways:
   - {{ .Values.ezua.virtualService.istioGateway | required ".Values.ezua.virtualService.istioGateway is required !\n" }}
@@ -17,6 +17,6 @@ spec:
 
       route:
       - destination:
-          host: aiva.default.svc.cluster.local
+          host: {{ include "aiva-ui.name" (index .Subcharts "aiva-ui") }}.{{ .Release.Namespace }}.svc.cluster.local
           port:
-            number: 3001
+            number: {{ index .Values "aiva-ui"  "service" "port" }}
