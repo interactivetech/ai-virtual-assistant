@@ -40,27 +40,28 @@ ezua:
   # if your cluster has self-signed certs, and you're using an MLIS endpoint, you'll need to enable this 
   # to add the certs to the agent deployment so it can trust it
   #and then uncomment out the extrapod volume and args section below
-  selfSignedCerts: false
+  selfSignedCerts: true
 agent-services:
+  extraPodVolumeMounts:
+  - mountPath: /cert
+    name: cert
+  extraPodVolumes:
+  - name: cert
+    secret:
+      defaultMode: 420
+      secretName: platform-ingress-cert
   applicationSpecs:
     agent-services-deployment:
       containers:
         agent-services-container:
-        #  extraPodVolumeMounts:
-        #  - mountPath: /cert
-        #    name: cert
-        #  extraPodVolumes:
-        #  - name: cert
-        #    secret:
-        #      defaultMode: 420
-        #      secretName: platform-ingress-cert
-        #  args:
-        #  - -c
-        #  - cp /cert/ca.crt /usr/local/share/ca-certificates/aie-cert.crt && update-ca-certificates
-        #    && sed -i "s|return ChatNVIDIA(base_url=f\"http://{settings.llm.server_url}/v1\",|return
-        #    ChatNVIDIA(base_url=settings.llm.server_url, api_key=os.environ['APP_LLM_API_KEY'],|"
-        #    /opt/src/common/utils.py && uvicorn src.agent.server:app --port 8081 --host
-        #    0.0.0.0 --workers 32 --loop asyncio
+          command: ["/bin/sh"]
+          args:
+          - -c
+          - cp /cert/ca.crt /usr/local/share/ca-certificates/aie-cert.crt && update-ca-certificates
+            && sed -i "s|return ChatNVIDIA(base_url=f\"http://{settings.llm.server_url}/v1\",|return
+            ChatNVIDIA(base_url=settings.llm.server_url, api_key=os.environ['APP_LLM_API_KEY'],|"
+            /opt/src/common/utils.py && uvicorn src.agent.server:app --port 8081 --host
+            0.0.0.0 --workers 32 --loop asyncio
           env:
           - name: EXAMPLE_PATH
             value: ./src/agent
