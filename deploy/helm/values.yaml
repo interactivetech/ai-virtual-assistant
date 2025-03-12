@@ -21,23 +21,49 @@ nvcf:
       stringData:
         key: "ngc-api-key"
         value: "<YOUR_NGC_API_KEY>"
+  # if you are using nvidia-hosted enpoints you need you your api key (not your ngc key)
+  # uncomment this and add your key below
+  #  - name: "nvidia-api-key"
+  #    stringData:
+  #      key: "nvidia-api-key"
+  #      value: "<YOUR_NV_API_KEY"
+
+
+aiva-ui:
+  nameOverride: aiva-ui
 
 aiva-ui:
   fullnameOverride: "aiva"
 
 ezua:
-  #Use next options in order to configure the application endpoint.
+  #Use next options in order to configure the application endpoint.    
   virtualService:
     endpoint: "aiva.<CHANGE_ME>" # EDIT THIS IF your domain name is different
     istioGateway: "istio-system/ezaf-gateway"
-# model:
-#   ngcAPISecret: "ngc-api-secret"
-#   ngcAPIKey: ""
+  # if your cluster has self-signed certs, and you're using an MLIS endpoint, you'll need to enable this 
+  # to add the certs to the agent deployment so it can trust it
+  #and then uncomment out the extrapod volume and args section below
+  selfSignedCerts: false
 agent-services:
   applicationSpecs:
     agent-services-deployment:
       containers:
         agent-services-container:
+        #  extraPodVolumeMounts:
+        #  - mountPath: /cert
+        #    name: cert
+        #  extraPodVolumes:
+        #  - name: cert
+        #    secret:
+        #      defaultMode: 420
+        #      secretName: platform-ingress-cert
+        #  args:
+        #  - -c
+        #  - cp /cert/ca.crt /usr/local/share/ca-certificates/aie-cert.crt && update-ca-certificates
+        #    && sed -i "s|return ChatNVIDIA(base_url=f\"http://{settings.llm.server_url}/v1\",|return
+        #    ChatNVIDIA(base_url=settings.llm.server_url, api_key=os.environ['APP_LLM_API_KEY'],|"
+        #    /opt/src/common/utils.py && uvicorn src.agent.server:app --port 8081 --host
+        #    0.0.0.0 --workers 32 --loop asyncio
           env:
           - name: EXAMPLE_PATH
             value: ./src/agent
@@ -46,7 +72,9 @@ agent-services:
           - name: APP_LLM_MODELENGINE
             value: nvidia-ai-endpoints
           - name: APP_LLM_SERVERURL
-            value: nemollm-inference-nemollm-infer-deployment-llm-service:8000
+            value: https://llama-3-8b-instruct-predictor-alegmoralesm-gm-0f9e3610.ingress.si5890.vcfmr.local/v1
+          - name: APP_LLM_API_KEY
+            value: <token goes here>
           - name: APP_CACHE_NAME
             value: redis
           - name: APP_CACHE_URL
