@@ -11,7 +11,7 @@ apiVersion: v2
 name: aiva
 description: AI-VirtualAssistant RAG on NIMs
 type: application
-version: 1.1.1
+version: 1.1.2
 appVersion: ''
 dependencies:
 - name: agent-services
