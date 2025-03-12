@@ -30,10 +30,7 @@ nvcf:
 
 
 aiva-ui:
-  nameOverride: aiva-ui
-
-aiva-ui:
-  fullnameOverride: "aiva"
+  fullnameOverride: "aiva-ui"
 
 ezua:
   #Use next options in order to configure the application endpoint.    
