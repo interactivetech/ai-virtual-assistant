@@ -63,6 +63,8 @@ agent-services:
             /opt/src/common/utils.py && uvicorn src.agent.server:app --port 8081 --host
             0.0.0.0 --workers 32 --loop asyncio
           env:
+          - name: REQUESTS_CA_BUNDLE
+            value: /etc/ssl/certs/ca-certificates.crt
           - name: EXAMPLE_PATH
             value: ./src/agent
           - name: APP_LLM_MODELNAME
